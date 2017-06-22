@@ -1,0 +1,39 @@
+<a href="#!/clients">Go Back</a>
+<div class="panel panel-default" ng-init="getClient()">
+  <div class="panel-heading">
+    <h3 class="panel-title">Client ID: {{client._id}}</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <p>Email: {{client.email}}</p>
+      <p>Phone: {{client.phone}}</p>
+      <div class="col-md-8">
+        <ul class="list-group" style="width:50%; float:left">
+          <li class="list-group-item">Form 3 Name: {{client.form3name}}</li>
+          <li class="list-group-item">Form 4 Name: {{client.form4name}}</li>
+          <li class="list-group-item">Form 5 Name: {{client.form5name}}</li>
+          <li class="list-group-item">Form 6 Name: {{client.form6name}}</li>
+          <li class="list-group-item">Form 7 Name: {{client.form7name}}</li>
+          <li class="list-group-item">Form 8 Name: {{client.form8name}}</li>
+          <li class="list-group-item">Form 9 Name: {{client.form9name}}</li>
+          <li class="list-group-item">Form 10 Name: {{client.form10name}}</li>
+        </ul>
+        <ul class="list-group"style="width:50%; float:right">
+          <li class="list-group-item">Form 3 Value: {{client.form3value}}</li>
+          <li class="list-group-item">Form 4 Value: {{client.form4value}}</li>
+          <li class="list-group-item">Form 5 Value: {{client.form5value}}</li>
+          <li class="list-group-item">Form 6 Value: {{client.form6value}}</li>
+          <li class="list-group-item">Form 7 Value: {{client.form7value}}</li>
+          <li class="list-group-item">Form 8 Value: {{client.form8value}}</li>
+          <li class="list-group-item">Form 9 Value: {{client.form9value}}</li>
+          <li class="list-group-item">Form 10 Value: {{client.form10value}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pull-right">
+  <a href="#!/clients/edit/{{client._id}}">Edit</a> | <a href="#" ng-click="
+  deleteClient(client._id)">Delete</a>
+</div>
