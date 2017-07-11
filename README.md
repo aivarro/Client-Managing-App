@@ -21,7 +21,7 @@ RESTful API using Node, Express and MongoDB
 
 # Example Functionality
 **Clients**
-![clients](https://github.com/aivarro/Client-Managing-App/blob/master/clients.jpg?raw=true "clients")
+![clients](https://github.com/aivarro/Client-Managing-App/blob/master/clients.jpg?raw=true "clients") 
 **Add a client**  
 ![add client](https://github.com/aivarro/Client-Managing-App/blob/master/addclient.jpg?raw=true "add client")
 **New client has been added**
