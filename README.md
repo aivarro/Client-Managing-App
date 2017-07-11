@@ -30,8 +30,8 @@ RESTful API using Node, Express and MongoDB
 
 **New client has been added**
 
-![added](https://raw.githubusercontent.com/aivarro/Client-Managing-App/master/added.JPG "added")  
+![added](https://raw.githubusercontent.com/aivarro/Client-Managing-App/master/added.JPG "added")
 
-**View of the client information**  
+**View of the client information**
 
 ![view client](https://github.com/aivarro/Client-Managing-App/blob/master/viewclient.JPG?raw=true "view client")
