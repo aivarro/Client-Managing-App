@@ -103,6 +103,32 @@ module.exports.editClient = function(id, client, options, callback){
   Client.findOneAndUpdate(query, update, options, callback);
 }
 
+// Edit Client without phone
+module.exports.editClientWithoutPhone = function(id, client, options, callback){
+  var query = {_id: id};
+  var update = {
+    email: client.email,
+    form3name: client.form3name,
+    form3value: client.form3value,
+    form4name: client.form4name,
+    form4value: client.form4value,
+    form5name: client.form5name,
+    form5value: client.form5value,
+    form6name: client.form6name,
+    form6value: client.form6value,
+    form7name: client.form7name,
+    form7value: client.form7value,
+    form8name: client.form8name,
+    form8value: client.form8value,
+    form9name: client.form9name,
+    form9value: client.form9value,
+    form10name: client.form10name,
+    form10value: client.form10value
+  }
+  Client.findOneAndUpdate(query, update, options, callback);
+}
+
+
 // Delete Client
 module.exports.deleteClient = function(id, callback){
   var query = {_id: id};

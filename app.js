@@ -53,24 +53,23 @@ function decrypt(buffer){
   return dec;
 }
 
-var mainregex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@{1,64}(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
-var lengthregex = /[a-z0-9@.!#$%&'*+/=?^_`{|}~-]{6,254}/g
+var mainregex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@{1,64}(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
+var lengthregex = /[a-z0-9@.!#$%&'*+/=?^_`{|}~-]{6,254}/
 
 app.post('/api/clients', function(req, res){
   var client = req.body;
   var phone = req.body.phone;
   var email = req.body.email;
   if(validator.isMobilePhone(phone, 'en-GB') && (mainregex.test(email) && lengthregex.test(email))) {
-  Client.addClient(client, function(err, client, phone){
+    var phone = req.body.phone;
+    var phoneend = phone.substring((phone.length-4),(phone.length));
+    req.body.phone = encrypt(req.body.phone) + phoneend;
+  Client.addClient(client, function(err, client){
     if(err){
       throw err;
     }
-    var phone = req.body.phone;
-    var phoneend = phone.substring((phone.length-4),(phone.length));
-    var phone = encrypt(phone) + phoneend;
-    //TODO ADD THE ENCRYPTED PHONE NUMBER TO CLIENT(req.body)
-    console.log(phone);
-    res.json(client);
+    console.log(req.body.phone);
+    res.json(req.body);
   });} else {
   console.log('Did not validate phone or email.'); }
 });
@@ -78,21 +77,30 @@ app.post('/api/clients', function(req, res){
 app.put('/api/clients/:_id', function(req, res){
   var id = req.params._id;
   var client = req.body;
-  var phone = req.body.phone;
   var email = req.body.email;
-  if(validator.isMobilePhone(phone, 'en-GB') && (mainregex.test(email) && lengthregex.test(email))){
-  Client.editClient(id, client, {}, function(err, client){
-    if(err){
-      throw err;
-    }
+  if(mainregex.test(email) && lengthregex.test(email)){
     var phone = req.body.phone;
-    var phoneend = phone.substring((phone.length-4),(phone.length));
-    var phone = encrypt(phone) + phoneend;
-    //TODO ADD THE ENCRYPTED PHONE NUMBER TO CLIENT(req.body)
-    console.log(phone);
-    res.json(client);
-  });} else {
-  console.log('Did not validate phone or email.'); }
+    if(validator.isMobilePhone(phone, 'en-GB')){
+      console.log('Updating phone');
+      var phoneend = phone.substring((phone.length-4),(phone.length));
+      req.body.phone = encrypt(req.body.phone) + phoneend;
+      Client.editClient(id, client, {}, function(err, client){
+        if(err){
+          throw err;
+        }
+        res.json(client);
+      });
+    } else {
+      console.log('Wont update phone');
+      Client.editClientWithoutPhone(id, client, {}, function(err, client){
+        if(err){
+          throw err;
+        }
+        res.json(client);
+      });
+    }
+} else {
+  console.log('Did not validate email.'); }
 });
 
 app.delete('/api/clients/:_id', function(req, res){
