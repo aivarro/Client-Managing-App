@@ -18,3 +18,9 @@ Other fields can vary from request to request, having arbitrary both name and va
 2. Open mongod.exe
 3. Execute command: node app
 4. Open localhost:3000 in browser
+
+# Images
+![clients](https://github.com/aivarro/Client-Managing-App/clients.jpg "clients")  
+![add client](https://github.com/aivarro/Client-Managing-App/addclient.jpg "add client")  
+![added](https://github.com/aivarro/Client-Managing-App/added.jpg "added")  
+![view client](https://github.com/aivarro/Client-Managing-App/viewclient.jpg "view client")
