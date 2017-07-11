@@ -20,7 +20,7 @@ Other fields can vary from request to request, having arbitrary both name and va
 4. Open localhost:3000 in browser
 
 # Images
-Clients
+Clients 
 ![clients](https://github.com/aivarro/Client-Managing-App/blob/master/clients.jpg?raw=true "clients")  
 Add a client
 ![add client](https://github.com/aivarro/Client-Managing-App/blob/master/addclient.jpg?raw=true "add client")  
