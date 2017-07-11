@@ -22,7 +22,7 @@ Other fields can vary from request to request, having arbitrary both name and va
 # Images
 Clients 
 ![clients](https://github.com/aivarro/Client-Managing-App/blob/master/clients.jpg?raw=true "clients")  
-Add a client
+Add a client  
 ![add client](https://github.com/aivarro/Client-Managing-App/blob/master/addclient.jpg?raw=true "add client")  
 New client has been added
 ![added](https://raw.githubusercontent.com/aivarro/Client-Managing-App/master/added.JPG "added")  
